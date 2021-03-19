@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import PostForm from "./components/PostForm";
+import FetchedPosts from "./components/FetchedPosts";
+import Posts from "./components/Posts";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container pt-3">
+      <div className="row">
+        <div className="col">
+          <PostForm />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <h2>Синхронные Посты</h2>
+          <Posts />
+        </div>
+        <div className="col">
+          <h2>Асинхронные Посты</h2>
+          <FetchedPosts />
+        </div>
+      </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={2500}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }
